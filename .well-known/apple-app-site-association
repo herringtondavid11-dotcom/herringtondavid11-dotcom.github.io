@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["D2Z4ABFHAB.com.davidherrington.Davey"],
+        "components": [
+          { "/": "/plaid/oauth*", "comment": "Plaid OAuth redirect back into Davey" }
+        ]
+      }
+    ]
+  }
+}
