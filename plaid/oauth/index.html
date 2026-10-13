@@ -9,13 +9,23 @@
     body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 16px;
            font: 17px/1.5 -apple-system, system-ui, sans-serif; background: #1C2838; color: #FFF4D2; text-align: center; }
     h1 { font-size: 24px; margin: 0 0 8px; }
-    p { color: #C9D6E3; margin: 0; max-width: 32em; }
+    p { color: #C9D6E3; margin: 0 auto 24px; max-width: 32em; }
+    a.button { display: inline-block; padding: 14px 28px; border-radius: 999px; background: #E8B84A; color: #1C2838;
+               font-weight: 600; text-decoration: none; }
   </style>
 </head>
 <body>
   <main>
     <h1>Almost done</h1>
-    <p>Open Davey on your iPhone to finish connecting your bank. If Davey didn't open by itself, switch back to it now.</p>
+    <p>Tap below to return to Davey and finish connecting your bank.</p>
+    <a class="button" id="open" href="davey://plaid/oauth">Return to Davey</a>
   </main>
+  <script>
+    // iOS normally opens this universal link straight in Davey. When it opens in a browser instead (Chrome, or a
+    // bank app's in-app browser), hand the OAuth result to Davey through its URL scheme, keeping the query intact.
+    var target = "davey://plaid/oauth" + window.location.search;
+    document.getElementById("open").href = target;
+    window.location.replace(target);
+  </script>
 </body>
 </html>
